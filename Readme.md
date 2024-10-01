@@ -37,10 +37,10 @@ npm install
 
 ```bash
 CREATE TABLE recipes (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  title VARCHAR(255) NOT NULL,
-  description TEXT NOT NULL,
-  date DATE NOT NULL
+    id int primary key auto_increment,
+    title VARCHAR(255) NOT NULL,
+    ingredients TEXT not null,
+    type VARCHAR(50) NOT NULL 
 );
 ```
 
@@ -148,10 +148,6 @@ npm start
 
 ```bash
 docker compose up 
-```
-
-```bash
-docker exec -it gestion_recettes mysql -u root -p
 ```
 
 ## Execusion des tests unitaire

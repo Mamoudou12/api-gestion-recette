@@ -9,6 +9,7 @@ const handleValidationErrors = (req, res, next) => {
   next();
 };
 
+// Récupérer toutes les recettes
 export const getAllRecipes = async (req, res) => {
   try {
     const recipes = await Recipe.getAllRecipes();
@@ -18,6 +19,7 @@ export const getAllRecipes = async (req, res) => {
   }
 };
 
+// Récupérer une recette par ID
 export const getRecipeById = [
   param('id').isInt({ min: 1 }).withMessage('ID must be a positive integer'),
   handleValidationErrors,
@@ -36,29 +38,34 @@ export const getRecipeById = [
   },
 ];
 
+// Créer une nouvelle recette
 export const createRecipe = [
   body('title')
     .isString()
     .withMessage('Title must be a string')
     .notEmpty()
     .withMessage('Title is required'),
-  body('description')
+  body('ingredients')
     .isString()
-    .withMessage('Description must be a string')
+    .withMessage('Ingredients must be a string')
     .notEmpty()
-    .withMessage('Description is required'),
-  body('date').isDate().withMessage('Date must be a valid date'),
+    .withMessage('Ingredients are required'),
+  body('type')
+    .isString()
+    .withMessage('Type must be a string')
+    .notEmpty()
+    .withMessage('Type is required'),
   handleValidationErrors,
   async (req, res) => {
-    const { title, description, date } = req.body;
+    const { title, ingredients, type } = req.body;
     try {
-      const id = await Recipe.createRecipe(title, description, date);
+      const id = await Recipe.createRecipe(title, ingredients, type);
       res.status(201).json({
         message: 'Recipe successfully created!',
         id,
         title,
-        description,
-        date,
+        ingredients,
+        type,
       });
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -66,24 +73,25 @@ export const createRecipe = [
   },
 ];
 
+// Mettre à jour une recette
 export const updateRecipe = [
   param('id').isInt({ min: 1 }).withMessage('ID must be a positive integer'),
   body('title').optional().isString().withMessage('Title must be a string'),
-  body('description')
+  body('ingredients')
     .optional()
     .isString()
-    .withMessage('Description must be a string'),
-  body('date').optional().isDate().withMessage('Date must be a valid date'),
+    .withMessage('Ingredients must be a string'),
+  body('type').optional().isString().withMessage('Type must be a string'),
   handleValidationErrors,
   async (req, res) => {
     const { id } = req.params;
-    const { title, description, date } = req.body;
+    const { title, ingredients, type } = req.body;
     try {
       const affectedRows = await Recipe.updateRecipe(
         id,
         title,
-        description,
-        date
+        ingredients,
+        type
       );
       if (affectedRows === 0) {
         return res.status(404).json({ message: 'Recipe not found' });
@@ -95,6 +103,7 @@ export const updateRecipe = [
   },
 ];
 
+// Supprimer une recette
 export const deleteRecipe = [
   param('id').isInt({ min: 1 }).withMessage('ID must be a positive integer'),
   handleValidationErrors,

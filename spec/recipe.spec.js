@@ -3,63 +3,64 @@ import Recipe from '../src/models/RecipeModel.js';
 describe('Recipe tests', () => {
   let recipeId = null;
 
-  it('can be create', async () => {
-    const recipe = { title: 'crepe', description: 'dessert', date: '2024-6-9' };
+  it('can be created', async () => {
+    const recipe = { title: 'Crepe', ingredients: 'Flour, Milk, Eggs', type: 'Dessert' };
     const result = await Recipe.createRecipe(
       recipe.title,
-      recipe.description,
-      recipe.date
+      recipe.ingredients,
+      recipe.type
     );
-    expect(result).not.toBeNull();
+    expect(result).not.toBeNull(); 
+    recipeId = result; 
   });
 
-  it('can not be create', async () => {
+  it('cannot be created with invalid data', async () => {
     try {
       const recipe = {
         title: null,
-        description: 'dessert',
-        date: '2024-09-08',
+        ingredients: 'Flour, Milk, Eggs',
+        type: 'Dessert',
       };
       const result = await Recipe.createRecipe(
         recipe.title,
-        recipe.description,
-        recipe.date
+        recipe.ingredients,
+        recipe.type
       );
       recipeId = result.insertId;
-      const recipeCreated = await Recipe.getRecipeById(recipeId);
-      expect(recipeId).toBeNull();
-      expect(recipeCreated).toEqual([]);
+      expect(recipeId).toBeNull(); 
     } catch (error) {
-      error.message;
+      expect(error.message).toBeDefined(); 
     }
   });
 
-  it('Can get all recipes', async () => {
+  it('can get all recipes', async () => {
     const getAll = await Recipe.getAllRecipes();
-    expect(getAll).not.toBeNull();
+    expect(getAll).not.toBeNull(); 
+    expect(Array.isArray(getAll)).toBe(true); 
   });
 
-  it('Can get a recipes by id', async () => {
-    const getAll = await Recipe.getRecipeById(3);
-    expect(getAll).not.toBeNull();
+  it('can get a recipe by id', async () => {
+    const recipe = await Recipe.getRecipeById(recipeId);
+    expect(recipe).not.toBeNull(); 
+    expect(recipe.id).toBe(recipeId); 
   });
 
-  it('can be update', async () => {
-    const recipe = { title: 'p', description: 'sdkqsd', date: '2024-03-05' };
+  it('can be updated', async () => {
+    const updatedRecipe = { title: 'Pancake', ingredients: 'Flour, Milk, Eggs', type: 'Breakfast' };
     const result = await Recipe.updateRecipe(
-      28,
-      recipe.title,
-      recipe.description,
-      recipe.date
+      recipeId,
+      updatedRecipe.title,
+      updatedRecipe.ingredients,
+      updatedRecipe.type
     );
-    recipeId = result.insertId;
-    await Recipe.getRecipeById(28);
-    expect(recipeId).not.toBeNull();
+    expect(result).not.toBeNull(); 
+    const recipeAfterUpdate = await Recipe.getRecipeById(recipeId);
+    expect(recipeAfterUpdate.title).toBe(updatedRecipe.title); 
   });
 
   it('can delete a recipe', async () => {
-    await Recipe.deleteRecipe(110);
-    const deletedRecipe = await Recipe.getRecipeById(110);
-    expect(deletedRecipe).toBeNull();
+    await Recipe.deleteRecipe(recipeId); 
+    const deletedRecipe = await Recipe.getRecipeById(recipeId);
+    expect(deletedRecipe).toBeNull(); 
   });
 });
