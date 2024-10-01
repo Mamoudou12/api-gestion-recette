@@ -1,45 +1,16 @@
 {
 	"info": {
-		"_postman_id": "1e3e7b47-5e0e-4ba1-a7dd-fc7aa2f128af",
-		"name": "gestion_recette",
+		"_postman_id": "fc8fa59e-1378-46ae-ad5d-56286b9eb520",
+		"name": "Gestion_recette",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38098614"
 	},
 	"item": [
 		{
-			"name": "Get_Recipes",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"{\r",
-							"    \"title\": \"Titre de la recette\",\r",
-							"    \"description\": \"Description de la recette\",\r",
-							"    \"date\": \"2024-09-15\"\r",
-							"}\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "GET_Recipes",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"\",\r\n  \"description\":12,\r\n  \"date\": \"2024-09-06\"\r\n}\r\n\r\n    ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:4000/api/recipes",
 					"protocol": "http",
@@ -56,39 +27,10 @@
 			"response": []
 		},
 		{
-			"name": "Get_Recipes_By_Id",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"{\r",
-							"    \"title\": \"Titre de la recette\",\r",
-							"    \"description\": \"Description de la recette\",\r",
-							"    \"date\": \"2024-09-15\"\r",
-							"}\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "GET_Recipes_By_id",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"\",\r\n  \"description\":12,\r\n  \"date\": \"2024-09-06\"\r\n}\r\n\r\n    ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:4000/api/recipes/1",
 					"protocol": "http",
@@ -112,7 +54,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Poisson fumeé\",\r\n    \"ingredients\": \"poisson\",\r\n    \"type\": \"grsgse\"\r\n}",
+					"raw": "{\r\n    \"title\": \"kebab\",\r\n        \"ingredients\": \"Tortillas, Beef, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"entrée\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -141,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Poisson fumeé\",\r\n    \"ingredients\": \"poisson-grillé\",\r\n    \"type\": \"hfkdxf\"\r\n}",
+					"raw": "{\r\n    \"title\": \"chawarma\",\r\n        \"ingredients\": \"Tortillas, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"dessert\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -149,7 +91,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/recipes/3",
+					"raw": "http://localhost:4000/api/recipes/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -158,7 +100,7 @@
 					"path": [
 						"api",
 						"recipes",
-						"3"
+						"6"
 					]
 				}
 			},
@@ -169,8 +111,17 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"chawarma\",\r\n        \"ingredients\": \"Tortillas, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"dessert\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:4000/api/recipes/3",
+					"raw": "http://localhost:4000/api/recipes/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -179,7 +130,7 @@
 					"path": [
 						"api",
 						"recipes",
-						"3"
+						"6"
 					]
 				}
 			},
