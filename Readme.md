@@ -14,11 +14,11 @@ Cette API permet de gérer des recettes de cuisine, incluant la création, la le
 1. Cloner le projet :
 
 ```bash
-git clone https://github.com/Mamoudou12/API_gestion_recette.git
+git clone https://github.com/Mamoudou12/gestion-recette-api.git
 ```
 
 ```bash
-cd API_gestion_recette
+cd gestion-recette-api
 ```
 
 2. Installer les dépendances :
@@ -38,9 +38,9 @@ npm install
 ```bash
 CREATE TABLE recipes (
     id int primary key auto_increment,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(100) unique NOT NULL,
     ingredients TEXT not null,
-    type VARCHAR(50) NOT NULL 
+    type VARCHAR(50) NOT NULL
 );
 ```
 
@@ -63,14 +63,14 @@ npm start
 {
 "id": 1,
 "title": "Lasagnes",
-"description": "Délicieuses lasagnes faites maison",
-"date": "2023-08-20"
+"ingredients": "Pâtes, Sauce tomate, Fromage",
+"type": "Plat"
 },
 {
 "id": 2,
 "title": "Tarte aux pommes",
-"description": "Tarte classique avec des pommes",
-"date": "2023-08-15"
+"ingredients": "Pommes, Pâte brisée, Sucre",
+"type": "Dessert"
 }
 ]
 
@@ -84,8 +84,8 @@ npm start
   {
   "id": 1,
   "title": "Lasagnes",
-  "description": "Délicieuses lasagnes faites maison",
-  "date": "2023-08-20"
+  "ingredients": "Pâtes, Sauce tomate, Fromage",
+  "type": "Plat"
   }
 
 3. Créer une nouvelle recette
@@ -95,8 +95,13 @@ npm start
 - Corps :
   {
   "title": "Titre de la recette",
-  "description": "Description de la recette",
-  "date": "YYYY-MM-DD"
+  "ingredients": "Liste des ingrédients",
+  "type": "Type de recette (Entrée, Plat, Dessert)"
+  }
+- Exemple de réponse :
+  {
+  "message": "Recipe created successfully",
+  "recipeId": 3
   }
 
 4.  Mettre à jour une recette
@@ -108,8 +113,8 @@ npm start
 
 {
 "title": "Titre mis à jour",
-"description": "Description mise à jour",
-"date": "YYYY-MM-DD"
+"ingredients": "Ingrédients mis à jour",
+"type": "Type mis à jour"
 }
 
 - Exemple de réponse :
@@ -147,7 +152,7 @@ npm start
 ## Les étapes pour construire et lancer le conteneur Docker:
 
 ```bash
-docker compose up 
+docker compose up
 ```
 
 ## Execusion des tests unitaire
@@ -159,5 +164,3 @@ npm test
 # Auteurs
 
 [Mamoudou Adama Ba ](https://github.com/Mamoudou12)
-
-[Aichetou Taher Sy ](https://github.com/shyshasy)
