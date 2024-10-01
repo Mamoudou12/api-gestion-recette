@@ -114,7 +114,12 @@ export const updateRecipe = [
     const { id } = req.params;
     const { title, ingredients, type } = req.body;
     try {
-      const affectedRows = await Recipe.updateRecipe(id, title, ingredients, type);
+      const affectedRows = await Recipe.updateRecipe(
+        id,
+        title,
+        ingredients,
+        type
+      );
       if (affectedRows === 0) {
         return res.status(404).json({ message: 'Recipe not found' });
       }
@@ -125,7 +130,6 @@ export const updateRecipe = [
   },
 ];
 
-// Supprimer une recette
 export const deleteRecipe = [
   param('id').isInt({ min: 1 }).withMessage('ID must be a positive integer'),
   handleValidationErrors,

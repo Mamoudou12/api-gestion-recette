@@ -7,12 +7,16 @@ class Recipe {
   }
 
   static async getRecipeById(id) {
-    const [results] = await db.query('SELECT * FROM recipes WHERE id = ?', [id]);
+    const [results] = await db.query('SELECT * FROM recipes WHERE id = ?', [
+      id,
+    ]);
     return results.length > 0 ? results[0] : null;
   }
 
   static async getRecipeByTitle(title) {
-    const [results] = await db.query('SELECT * FROM recipes WHERE title = ?', [title]);
+    const [results] = await db.query('SELECT * FROM recipes WHERE title = ?', [
+      title,
+    ]);
     return results.length > 0 ? results[0] : null;
   }
 
