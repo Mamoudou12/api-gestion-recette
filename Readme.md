@@ -31,17 +31,10 @@ npm install
 
 - Mettre à jour les informations de connexion à la base de données (hôte, utilisateur, mot de passe, nom de la base de données).
 
-4. Initialiser la base de données :
-
-- Créez une base de données MySQL et assurez-vous que la table recipes existe avec la structure suivante :
+4. Importer via la ligne de commande le script sql :
 
 ```bash
-CREATE TABLE recipes (
-    id int primary key auto_increment,
-    title VARCHAR(100) unique NOT NULL,
-    ingredients TEXT not null,
-    type VARCHAR(50) NOT NULL
-);
+mysql -u [nom_utilisateur] -p [nom_base_de_donnees] < [chemin/vers/script.sql]
 ```
 
 5. Démarrer le serveur :

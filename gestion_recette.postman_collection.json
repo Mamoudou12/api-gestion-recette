@@ -1,140 +1,112 @@
 {
-	"info": {
-		"_postman_id": "fc8fa59e-1378-46ae-ad5d-56286b9eb520",
-		"name": "Gestion_recette",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38098614"
-	},
-	"item": [
-		{
-			"name": "GET_Recipes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/recipes",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"recipes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET_Recipes_By_id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/recipes/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"recipes",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST_Recipes",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"kebab\",\r\n        \"ingredients\": \"Tortillas, Beef, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"entrée\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:4000/api/recipes",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"recipes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT_Recipes",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"chawarma\",\r\n        \"ingredients\": \"Tortillas, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"dessert\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:4000/api/recipes/6",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"recipes",
-						"6"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE_Recipes",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"chawarma\",\r\n        \"ingredients\": \"Tortillas, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"dessert\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:4000/api/recipes/6",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"recipes",
-						"6"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "fc8fa59e-1378-46ae-ad5d-56286b9eb520",
+    "name": "Gestion_recette",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38098614"
+  },
+  "item": [
+    {
+      "name": "GET_Recipes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/recipes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "recipes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET_Recipes_By_id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/recipes/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "recipes", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST_Recipes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"kebab\",\r\n        \"ingredients\": \"Tortillas, Beef, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"entrée\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/recipes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "recipes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT_Recipes",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"chawarma\",\r\n        \"ingredients\": \"Tortillas, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"dessert\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/recipes/6",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "recipes", "6"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE_Recipes",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"chawarma\",\r\n        \"ingredients\": \"Tortillas, Lettuce, Cheese, Tomato, Sour Cream\",\r\n        \"type\": \"dessert\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/recipes/6",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["api", "recipes", "6"]
+        }
+      },
+      "response": []
+    }
+  ]
 }
