@@ -29,6 +29,8 @@ npm install
 
 3. Configurer la base de données :
 
+- Créer un fichier .env à la racine de votre projet
+- copier les informations qui se trouvent dans le fichier .env.example puis utiliser les dans votre fichier .env
 - Mettre à jour les informations de connexion à la base de données (hôte, utilisateur, mot de passe, nom de la base de données).
 
 4. Importer via la ligne de commande le script sql :
@@ -52,6 +54,7 @@ npm start
 - Description : Renvoie la liste de toutes les recettes.
 - Exemple de réponse :
 
+```bash
 [
 {
 "id": 1,
@@ -66,6 +69,7 @@ npm start
 "type": "Dessert"
 }
 ]
+```
 
 2. Récupérer une recette par ID
 
@@ -74,47 +78,58 @@ npm start
 - Paramètres : id (Requis, entier)
 - Description : Renvoie une recette spécifique par son ID.
 - Exemple de réponse :
+  ```bash
   {
   "id": 1,
   "title": "Lasagnes",
   "ingredients": "Pâtes, Sauce tomate, Fromage",
   "type": "Plat"
   }
+  ```
 
 3. Créer une nouvelle recette
 
 - URL : /recipes
 - Méthode : POST
 - Corps :
+  ```bash
   {
   "title": "Titre de la recette",
   "ingredients": "Liste des ingrédients",
   "type": "Type de recette (Entrée, Plat, Dessert)"
   }
+  ```
 - Exemple de réponse :
+  ```bash
   {
   "message": "Recipe created successfully",
   "recipeId": 3
   }
+  ```
 
 4.  Mettre à jour une recette
 
 - URL : /recipes/:id
 - Méthode : PUT
 - Paramètres : id (Requis, entier)
+- Description : Mets à jour une recette spécifique par son ID.
 - Corps :
 
+```bash
 {
 "title": "Titre mis à jour",
 "ingredients": "Ingrédients mis à jour",
 "type": "Type mis à jour"
 }
+```
 
 - Exemple de réponse :
 
+```bash
 {
 "message": "Recipe updated successfully"
 }
+```
 
 5. Supprimer une recette
 
@@ -124,9 +139,11 @@ npm start
 - Description : Supprime une recette spécifique par son ID.
 - Exemple de réponse :
 
+```bash
 {
 "message": "Recipe deleted successfully"
 }
+```
 
 ### Codes de Statut HTTP
 
@@ -136,23 +153,60 @@ npm start
 - 404 Not Found : La ressource demandée n'a pas été trouvée.
 - 500 Internal Server Error : Une erreur serveur est survenue.
 
-## Lancer l'application
+## Tests unitaires
 
-```bash
-npm start
-```
+Des tests unitaires sont proposé pour vérifier le bon fonctionnement des fonctionnalités CRUD.
 
-## Les étapes pour construire et lancer le conteneur Docker:
-
-```bash
-docker compose up
-```
-
-## Execusion des tests unitaire
+- Framework utilisé : Jasmine
+- Executer les tests:
 
 ```bash
 npm test
 ```
+
+## Analyse et formatage du code
+
+Pour l'analyse statique du code j'ai utillisé ESLint et Prettier pour le formatage. Ces outils sont configurés pour maintenir un code propre et cohérent.
+
+Pour l'analyse du code Executer les commandes suivants:
+
+- Recherche des erreur:
+
+```bash
+npm run lint
+```
+
+- Fixer les erreurs corrigeable par ESLint:
+
+```bash
+npm run lint:fix
+```
+
+- formatage du code:
+
+```bash
+npm run format
+```
+
+## Instruction pour docker
+
+1. Les étapes pour construire et lancer le conteneur Docker:
+
+```bash
+docker-compose up --build
+```
+
+2. Lancer les conteneurs existants avec docker compose
+
+```bash
+docker compose up -d
+```
+
+## Collection Postman
+
+Pour vous faciliter le tester des différents endpoints de l'API, vous pouvez utiliser la collection Postman incluse dans ce projet. Elle contient toutes les requêtes configurées pour interagir avec l'API.
+
+- Importer la collection dans postman pour éfectuer les tests
 
 # Auteurs
 
