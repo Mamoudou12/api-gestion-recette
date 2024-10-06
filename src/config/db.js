@@ -1,5 +1,5 @@
-import mysql from 'mysql2/promise';
-import dotenv from 'dotenv';
+import mysql from "mysql2/promise";
+import dotenv from "dotenv";
 
 dotenv.config();
 const connPool = mysql.createPool({
@@ -14,6 +14,6 @@ const connPool = mysql.createPool({
 });
 
 connPool.getConnection().then(() => {
-  console.log('CONNECTED');
+  console.log("CONNECTED");
 });
 export default connPool;

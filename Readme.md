@@ -196,12 +196,6 @@ npm run format
 docker-compose up --build
 ```
 
-2. Lancer les conteneurs existants avec docker compose
-
-```bash
-docker compose up -d
-```
-
 ## Collection Postman
 
 Pour vous faciliter le tester des différents endpoints de l'API, vous pouvez utiliser la collection Postman incluse dans ce projet. Elle contient toutes les requêtes configurées pour interagir avec l'API.
